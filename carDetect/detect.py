@@ -39,7 +39,6 @@ def findobj(outputs,img):
     cv.putText(img,str(len(finalIndex-z)),(10,50),cv.FONT_HERSHEY_PLAIN,2,(255,0,255),1)
     print(len(finalIndex-z))
 
-# img=cv.imread('car1.jpg')
 def processimg(read):
     read = cv.resize(read, (w, w))
     blob = cv.dnn.blobFromImage(read, 1 / 255, (w, w), [0, 0, 0], 1)
@@ -63,5 +62,5 @@ def getmarkedVideo(path="cardetect/test1.mp4"):
         # cv.imshow("try",read2)
         cv.waitKey(1)
         
-
-getmarkedVideo()
+if __name__=="__main__":
+    getmarkedVideo()
