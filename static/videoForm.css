@@ -15,21 +15,17 @@
     margin: auto;
 }
 
-.form-container div{
+.item{
     display: inline;
     width: 80%;
-    background-color: #099046;
+    border-radius: 10px;
+    background-color: #19ce6b;
+    /* background-color: #19cece; */
 }
 .form-container div, label, input{
     margin: 0.5rem;
     padding: 0.5rem;
     font-size:large;
-}
-
-input#file-upload-button{
-    border: 2px solid #099046;
-    border-radius: 20px;
-    color: #59098f;
 }
 #submit{
     border: 2px solid #59098f;
