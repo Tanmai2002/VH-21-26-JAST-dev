@@ -27,7 +27,7 @@ body{
     font-size: 2rem;
 }
 
-.other{
+/* .other{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,5 +37,5 @@ body{
 
 .other video{
     margin: 1rem;
-}
+} */
 
