@@ -48,9 +48,6 @@ def processimg(read):
     return read
 def getmarkedVideo(path="cardetect/test1.mp4"):
     cap=cv.VideoCapture(path)
-    objecs=[]
-    with open('cardetect/objects.txt', 'rt') as f:
-        objecs=f.read().rstrip('\n').split('\n')
     # print(objecs)
 
     fourcc=cv.VideoWriter_fourcc(*"XVID")
