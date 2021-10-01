@@ -1,4 +1,5 @@
 .upload-vid{
+    padding: 1rem;
     border: 2px solid #59098f;
     border-radius: 20px;
     color: #59098f;
@@ -9,5 +10,25 @@
     border-radius: 20px;
     color: #59098f;
     width: 100px;
+}
+
+.video-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 2rem 0rem; */
+}
+
+.main{
+    margin: 2rem;
+}
+
+.other{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
