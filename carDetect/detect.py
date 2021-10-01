@@ -9,7 +9,7 @@ net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
 net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
 layerNames = net.getLayerNames()
 op = [layerNames[i[0] - 1] for i in net.getUnconnectedOutLayers()]
-def findobj(outputs,img):
+def findobj(outputs,img,noOfRoads=1):
     hi,wi,c=img.shape
     bx=[]
     ids=[]
@@ -28,38 +28,47 @@ def findobj(outputs,img):
                 confidence.append(float(conf))
         # print(len(ids))
     finalIndex=cv.dnn.NMSBoxes(bx,confidence,0.75,nms)
-    z=0
+    z=[0]*noOfRoads
     for i in finalIndex:
         i=i[0]
         t=bx[i]
         if(ids[i]<1 or ids[i]>7):
-            z+=1
             continue
+        for i in range(noOfRoads):
+            if (wi/noOfRoads)*(i+1)>t[0]:
+                z[i]+=1
+                break
         cv.rectangle(img,(t[0],t[1]),(t[0]+t[2],t[1]+t[3]),(255,255,0),2)
-    cv.putText(img,str(len(finalIndex-z)),(10,50),cv.FONT_HERSHEY_PLAIN,2,(255,0,255),1)
-    print(len(finalIndex-z))
+    cv.putText(img,str(z),(10,50),cv.FONT_HERSHEY_PLAIN,2,(255,0,255),1)
+    print(str(z))
 
 def processimg(read):
     read = cv.resize(read, (w, w))
+    # cv.line(read,(w//2,0),(w//2,w),(0,255,255),1)
     blob = cv.dnn.blobFromImage(read, 1 / 255, (w, w), [0, 0, 0], 1)
     net.setInput(blob)
     fwd = net.forward(op)
-    findobj(fwd, read)
+    findobj(fwd, read,2)
     return read
-def getmarkedVideo(path="cardetect/test3.mp4"):
+def getmarkedVideo(path="cardetect/test1.mp4"):
     cap=cv.VideoCapture(path)
     # print(objecs)
 
     fourcc=cv.VideoWriter_fourcc(*"XVID")
-    # writer=cv.VideoWriter('op2.avi',fourcc,10,(w,w))
+    writer=cv.VideoWriter('op.avi',fourcc,20.0,(w,w))
     while cap.isOpened():
-        _,read=cap.read()
+        t,read=cap.read()
+        if not t:
+            break
         read2=processimg(read)
 
         #TO show or write in another video
-        # writer.write(read)
-        # cv.imshow("try",read2)
-        # cv.waitKey(1)
-        
+        writer.write(read2)
+        cv.imshow("try",read2)
+        if cv.waitKey(1)==ord('q') & 0xFF:
+            break
+    writer.release()
+    cap.release()
+    cv.destroyAllWindows()
 if __name__=="__main__":
     getmarkedVideo()
