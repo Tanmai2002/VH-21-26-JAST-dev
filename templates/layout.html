@@ -10,6 +10,17 @@
     <title>Intelligent Traffic</title>
 </head>
 <body>
-    <a class="upload-vid" style="text-decoration: none; text-align: center;" href="./videoForm.html">Upload Videos</a>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{category}}">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+    </div>
+    <a class="upload-vid" style="text-decoration: none; text-align: center;" href="{{ url_for('upload') }}">Upload Videos page</a>
 </body>
 </html>

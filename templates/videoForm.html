@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Videos | Intelligent traffic</title>
     <!-- <link rel="stylesheet" href="../static/videoForm.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='videoForm.css') }}">
     <link rel="icon" href="../public/traffic-lights.ico" />
 </head>
 <body>
-    <form action="#" class="form-container">
+    <form action="/videoForm" method="POST" class="form-container">
         <h2 >Upload road traffic videos</h2>
         <br><br>
         <div style="padding: 15px ;text-align:left;background-color: #19cece; border-radius: 10px">
@@ -30,22 +31,49 @@
             </p>  -->
         </div>
         <div class="item">
-            <label for="img">Upload video 1</label>
-            <input class="input-btn" type="file" id="vid1" name="vid1" accept="video/*" required>
+            {{form.video_1.label()}}
+            {{ form.video_1(class="form-control-file")}}
+                {% if form.video_1.errors %}
+                    {% for error in form.video_1.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+            
         </div>
         <div class="item">
-            <label for="img">Upload video 2</label>
-            <input class="input-btn" type="file" id="vid2" name="vid2" accept="video/*" required>
+            {{form.video_2.label()}}
+            {{ form.video_2(class="form-control-file")}}
+                {% if form.video_2.errors %}
+                    {% for error in form.video_2.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+            
+        <div class="item">
+            {{form.video_3.label()}}
+            {{ form.video_3(class="form-control-file")}}
+                {% if form.video_3.errors %}
+                    {% for error in form.video_3.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+            
         </div>
         <div class="item">
-            <label for="img">Upload video 3</label>
-            <input class="input-btn" type="file" id="vid3" name="vid3" accept="video/*">
+            {{form.video_4.label()}}
+            {{ form.video_4(class="form-control-file")}}
+                {% if form.video_4.errors %}
+                    {% for error in form.video_4.errors %}
+                    <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+            
         </div>
-        <div class="item">
-            <label for="img">Upload video 4</label>
-            <input class="input-btn" type="file" id="vid4" name="vid4" accept="video/*">
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info mt-2") }}
         </div>
-        <input id="submit" type="submit">
+
     </form> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>
