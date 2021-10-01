@@ -7,10 +7,21 @@
     <title>Analysis | Intelligent Traffic</title>
     <!-- <link rel="stylesheet" href="../static/analysis.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}">
+    <!-- <link rel="stylesheet" href="../static/basichome.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='basichome.css') }}">
 </head>
 <body>
+    <nav class="Nav">
+        <ul>
+            <li><img src="../public/traffic-lights.ico"></li>
+            <li><a href="../templates/home.html">Home</a></li>
+            <li><a href="./videoForm.html">Upload</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+     </nav>
     <div class="main-container">
-        <video id="vid1" width="960" height="720" class="main" autoplay muted controls loop>
+        <video style="z-index:-1" id="vid1" width="960" height="720" class="main" autoplay muted loop>
             <source  class="one" src="../carDetect/test1.mp4" type="video/mp4">
         </video>
         <div class="analysis-container">

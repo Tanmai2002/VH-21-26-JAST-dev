@@ -7,9 +7,20 @@
     <title>Upload Videos | Intelligent traffic</title>
     <!-- <link rel="stylesheet" href="../static/videoForm.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='videoForm.css') }}">
+    <!-- <link rel="stylesheet" href="../static/basichome.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='basichome.css') }}">
     <link rel="icon" href="../public/traffic-lights.ico" />
 </head>
-<body>
+<body style="background-color: rgb(205, 243, 234);">
+    <nav class="Nav" style="margin: 2px 2px">
+        <ul style="padding-left: 40px;">
+            <li style="margin: 16px 0px" ><img src="../public/traffic-lights.ico"></li>
+            <li><a href="../templates/home.html">Home</a></li>
+            <li><a href="videoForm.html">Upload</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+     </nav>
     <form action="#" class="form-container">
         <h2 >Upload road traffic videos</h2>
         <br><br>

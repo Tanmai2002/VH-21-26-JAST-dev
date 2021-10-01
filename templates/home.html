@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traffic Vision</title>
-    <link rel="stylesheet" href="../static/basichome.css">
+    <!-- <link rel="stylesheet" href="../static/basichome.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='basichome.css') }}">
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
 </head>
 <body>
     <div class="container">
@@ -21,7 +22,7 @@
            </ul>
         </nav>
     <div class="sideways">
-        <video width="50%" height="400px" autoplay="autoplay" loop="true">
+        <video width="50%" height="400px" autoplay loop="true">
         <source src="../carDetect/test3.mp4" type="video/mp4">
         </video>
         <div id="piechart"></div>
