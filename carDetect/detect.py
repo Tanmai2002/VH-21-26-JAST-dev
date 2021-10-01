@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+#yolov3 weights to be included
 w=320
 def findobj(outputs,img):
     hi,wi,c=img.shape
@@ -24,9 +25,10 @@ def findobj(outputs,img):
         i=i[0]
         t=bx[i]
         cv.rectangle(img,(t[0],t[1]),(t[0]+t[2],t[1]+t[3]),(255,55,0),2)
-        print()
+    print(len(finalIndex))
 
-img=cv.imread('car1.jpg')
+# img=cv.imread('car1.jpg')
+
 cap=cv.VideoCapture("cardetect/test1.mp4")
 objecs=[]
 with open('cardetect/objects.txt', 'rt') as f:
@@ -35,8 +37,8 @@ print(objecs)
 conf='cardetect/yolov3.cfg'
 weights='cardetect/yolov3.weights'
 net=cv.dnn.readNetFromDarknet(conf,weights)
-net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
-net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
+net.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA_FP16)
 layerNames=net.getLayerNames()
 op=[layerNames[i[0]-1] for i in net.getUnconnectedOutLayers()]
 
