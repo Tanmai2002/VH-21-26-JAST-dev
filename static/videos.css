@@ -11,9 +11,10 @@ body{
     float: right;
     text-align: center;
 }
-.home:hover{
+.home:hover {
     color: white;
     background-color: blueviolet;
+    cursor: pointer;
 }
 .video-container{
     display: flex;

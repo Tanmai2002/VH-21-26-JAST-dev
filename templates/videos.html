@@ -10,21 +10,21 @@
 </head>
 <body>
     <div>
-        <button class="home" >Home</button>
+        <a style="text-decoration: none;" href="../templates/home.html"><button class="home" >HOME</button></a>
     </div>
     <h1>Video Analysis: </h1>
     <div class="video-container">
         <video id="vid1" width="640" height="480" class="main" autoplay muted controls loop>
             <source  class="one" src="../carDetect/test1.mp4" type="video/mp4">
         </video> 
-        <p>CAM1</p>
+        <p id="cam2">CAM1</p>
         <!-- CAM1 -->
         <div class="other">
             <div>
                 <video id="vid2" width="320" height="240" autoplay muted controls loop>
-                    <source src="../carDetect/test1.mp4" type="video/mp4">
+                    <source src="../carDetect/test2.mp4" type="video/mp4">
                 </video> 
-                <p>CAM2</p>
+                <p id="cam2">CAM2</p>
             </div>
             <!-- CAM2 -->
             <div>
@@ -35,14 +35,12 @@
             </div>
             <div>
                 <video id="vid4" width="320" height="240" autoplay muted controls loop>
-                    <source src="../carDetect/test1.mp4" type="video/mp4">
+                    <source src="../carDetect/test4.mp4" type="video/mp4">
                 </video> 
                 <p>CAM4</p>
             </div>
         </div>
     </div>
-    <script>
-        
-    </script>
+    
 </body>
 </html>

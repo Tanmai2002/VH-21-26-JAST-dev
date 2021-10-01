@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis | Intelligent Traffic</title>
-    <!-- <link rel="stylesheet" href="../static/analysis.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}">
-    <!-- <link rel="stylesheet" href="../static/basichome.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='basichome.css') }}">
+    <link rel="stylesheet" href="../static/analysis.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}"> -->
+    <link rel="stylesheet" href="../static/basichome.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='basichome.css') }}"> -->
 </head>
 <body>
     <nav class="Nav">
@@ -28,13 +28,24 @@
             <h1>Analysis:</h1>
             <span class="analysis-data">Number of cars : value</span>
             <span class="analysis-data">Accidents : value</span>
-            <span class="analysis-data">Traffic light: </span>
+            <span class="analysis-data">Direct Traffic: </span>
             <!-- <span class="analysis-data"><img src="../public/traffic-lights.png" alt=""></span> -->
-            <svg height="350" width="200">
+            <!-- <svg height="350" width="200">
                 <circle cx="150" cy="50" r="30" stroke="black" stroke-width="3" fill="red" opacity="0.3"/>
                 <circle cx="150" cy="120" r="30" stroke="black" stroke-width="3" fill="yellow" opacity="0.3"/>
                 <circle cx="150" cy="190" r="30" stroke="black" stroke-width="3" fill="green" />
-            </svg> 
+            </svg>  -->
+            <div class="arrows">
+                <div class="col1">
+                    <img class="right" src="../public/right.png" alt="">
+                    <img class="right" src="../public/right.png" alt="">
+                </div>
+                <div class="col2">
+                    <img class="up" src="../public/right.png" alt="">
+                    <img class="up" src="../public/right.png" alt="">
+                </div>
+                
+            </div>
         </div>
     </div>
 </body>
