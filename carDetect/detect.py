@@ -1,12 +1,12 @@
 import cv2 as cv
 import numpy as np
 #yolov3 weights to be included
-w=320
+w=608
 conf = 'cardetect/yolov3.cfg'
 weights = 'cardetect/yolov3.weights'
 net = cv.dnn.readNetFromDarknet(conf, weights)
-net.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
-net.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA_FP16)
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
 layerNames = net.getLayerNames()
 op = [layerNames[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 def findobj(outputs,img):
@@ -46,7 +46,7 @@ def processimg(read):
     fwd = net.forward(op)
     findobj(fwd, read)
     return read
-def getmarkedVideo(path="cardetect/test1.mp4"):
+def getmarkedVideo(path="cardetect/test3.mp4"):
     cap=cv.VideoCapture(path)
     # print(objecs)
 
@@ -55,9 +55,11 @@ def getmarkedVideo(path="cardetect/test1.mp4"):
     while cap.isOpened():
         _,read=cap.read()
         read2=processimg(read)
+
+        #TO show or write in another video
         # writer.write(read)
         # cv.imshow("try",read2)
-        cv.waitKey(1)
+        # cv.waitKey(1)
         
 if __name__=="__main__":
     getmarkedVideo()
