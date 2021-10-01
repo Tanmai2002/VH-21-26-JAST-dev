@@ -15,7 +15,7 @@ app.config['SECRET_KEY'] = '15de991f5f224a1d524d408efc1753ac'
 
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/videos')
 
-ALLOWED_EXTENSIONS = set(['mp4', 'gif'])
+ALLOWED_EXTENSIONS = {'mp4', 'gif'}
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -23,7 +23,7 @@ def allowed_file(filename):
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('layout.html', title='Home')
+    return render_template('home.html', title='Home')
 
 # def save_video(form_video):
 #     random_hex = secrets.token_hex(8)
@@ -33,6 +33,7 @@ def home():
 #     form_video.save(video_path)
 #     return video_fn
 
+@app.route('/')
 @app.route('/upload', methods=['GET','POST'])
 def upload():
     form = VideoForm()
