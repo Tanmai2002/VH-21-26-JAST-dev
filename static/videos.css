@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(175, 204, 198);
+    /* background-color: rgb(65, 14, 110); */
+}
+.home{
+    color: blueviolet;
+    border: 2px solid blueviolet;
+    border-radius: 10px;
+    /* width: 50px; */
+    padding: 0.5rem 1rem;
+    float: right;
+    text-align: center;
+}
+.home:hover{
+    color: white;
+    background-color: blueviolet;
+}
+.video-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 2rem 0rem; */
+}
+.video-container h1{
+    font-size: 2rem;
+}
+.main{
+    /* margin: 0.5rem; */
+}
+
+.other{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.other video{
+    margin: 1rem;
+}
+
