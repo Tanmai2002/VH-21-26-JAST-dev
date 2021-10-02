@@ -38,13 +38,22 @@ def home():
 def upload():
     form = VideoForm()
     if request.method == 'POST':
+        i=0
         for f in request.files.getlist('file_name'):
-            f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-            return render_template('upload.html', msg="File(s) have been uploaded successfully")
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], f'test{i}.mp4'))
+        return render_template('videos.html', title='Home')
+        # return render_template('upload.html', msg="File(s) have been uploaded successfully")
     return render_template('upload.html', title='upload',form=form, msg="Please Choose files")
 
 
 @app.route('/')
+@app.route('/videos', methods=['GET','POST'])
 @app.route('/videos')
 def videos():
     return render_template('videos.html', title='Home')
+
+
+@app.route('/')
+@app.route('/analysis')
+def analysis():
+    return render_template('analysis.html', title='Analysis')

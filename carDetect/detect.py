@@ -50,12 +50,12 @@ def processimg(read):
     fwd = net.forward(op)
     findobj(fwd, read,2)
     return read
-def getmarkedVideo(path="cardetect/test1.mp4"):
+def getmarkedVideo(path="cardetect/test3.mp4"):
     cap=cv.VideoCapture(path)
     # print(objecs)
 
     fourcc=cv.VideoWriter_fourcc(*"XVID")
-    writer=cv.VideoWriter('op.avi',fourcc,20.0,(w,w))
+    writer=cv.VideoWriter('op2.avi',fourcc,20.0,(w,w))
     while cap.isOpened():
         t,read=cap.read()
         if not t:

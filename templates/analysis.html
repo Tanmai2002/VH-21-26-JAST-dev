@@ -13,16 +13,17 @@
 <body>
     <nav class="Nav">
         <ul>
-            <li><img src="../public/traffic-lights.ico"></li>
-            <li><a href="../templates/home.html">Home</a></li>
-            <li><a href="./videoForm.html">Upload</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact</a></li>
+<!--               <li><img src="../public/traffic-lights.ico"></li>-->
+            <li><img src={{url_for('static',filename='traffic-lights.ico')}}></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('upload') }}">Upload</a></li>
+            <li><a href="{{ url_for('videos') }}">Videos</a></li>
+            <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
         </ul>
      </nav>
     <div class="main-container">
         <video style="z-index:-1" id="vid1" width="960" height="720" class="main" autoplay muted loop>
-            <source  class="one" src="../carDetect/test1.mp4" type="video/mp4">
+            <source  class="one" src=".{{url_for('static',filename='videos/test0.mp4')}}" type="video/mp4">
         </video>
         <div class="analysis-container">
             <h1>Analysis:</h1>
@@ -37,12 +38,12 @@
             </svg>  -->
             <div class="arrows">
                 <div class="col1">
-                    <img class="right" src="../public/right.png" alt="">
-                    <img class="right" src="../public/right.png" alt="">
+                    <img id="sig1" class="right" src="{{url_for('static',filename='right.png')}}" alt="">
+                    <img id="sig2" class="right" src="{{url_for('static',filename='right.png')}}" alt="">
                 </div>
                 <div class="col2">
-                    <img class="up" src="../public/right.png" alt="">
-                    <img class="up" src="../public/right.png" alt="">
+                    <img id="sig3" class="up" src="{{url_for('static',filename='right.png')}}" alt="">
+                    <img id="sig4" class="up" src="{{url_for('static',filename='right.png')}}" alt="">
                 </div>
                 
             </div>
