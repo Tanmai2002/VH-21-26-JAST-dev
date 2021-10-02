@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: row;
 }
-.main-container video{
-    margin-top: -5rem;
-}
+
 
 .analysis-container{
     display: flex;

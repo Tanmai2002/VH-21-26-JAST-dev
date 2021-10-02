@@ -53,7 +53,7 @@ def processimg(read):
 def getmarkedVideo(path="cardetect/test3.mp4"):
     cap=cv.VideoCapture(path)
     # print(objecs)
-    fourcc=cv.VideoWriter_fourcc(*"mp4v")
+    fourcc=cv.VideoWriter_fourcc(*"h264")
     writer=cv.VideoWriter('static/videos/compiled.mp4',fourcc,20.0,(w,w))
     while cap.isOpened():
         t,read=cap.read()
