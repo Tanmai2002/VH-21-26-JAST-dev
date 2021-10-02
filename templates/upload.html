@@ -18,6 +18,28 @@
             background-color: greenyellow;
             border-radius: 25px;
         }
+        input{
+            background: rgb(140, 207, 39);
+            font-size: larger;
+            padding: 10px 10px;
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        input.btn{
+            
+            background: rgb(0, 233, 233);
+            padding: 10px;
+            width: 100px;
+            border-radius: 20px;
+        }
+        input.btn:hover{
+            cursor: pointer;
+            background: cyan;
+            padding: 10px;
+            width: 100px;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -37,7 +59,7 @@
     <br>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file_name" multiple accept="video/*">
-        <input type="submit" value="Submit">
+        <input class="btn" type="submit" value="Submit">
     </form>
     </div>
 </div>
