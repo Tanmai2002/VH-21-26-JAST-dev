@@ -58,4 +58,7 @@ def videos():
 @app.route('/')
 @app.route('/analysis')
 def analysis():
+    g1="g1"
+    g2='g2'
+    return render_template('Analysis.html', test1=g1,test2=g1,test3=g2,test4=g2)
     return render_template('analysis.html', title='Analysis')
