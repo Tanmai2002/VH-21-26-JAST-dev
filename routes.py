@@ -42,3 +42,9 @@ def upload():
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
             return render_template('upload.html', msg="File(s) have been uploaded successfully")
     return render_template('upload.html', title='upload',form=form, msg="Please Choose files")
+
+
+@app.route('/')
+@app.route('/videos')
+def videos():
+    return render_template('videos.html', title='Home')

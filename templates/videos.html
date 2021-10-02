@@ -10,12 +10,12 @@
 </head>
 <body>
     <div>
-        <a style="text-decoration: none;" href="../templates/home.html"><button class="home" >HOME</button></a>
+        <a style="text-decoration: none;" href="{{ url_for('home') }}"><button class="home" >HOME</button></a>
     </div>
     <h1>Video Analysis: </h1>
     <div class="video-container">
         <video id="vid1" width="640" height="480" class="main" autoplay muted controls loop>
-            <source  class="one" src="../carDetect/test1.mp4" type="video/mp4">
+            <source  class="one" src={{url_for('static',filename='videos/test3.mp4')}} type="video/mp4">
         </video> 
         <p id="cam2">CAM1</p>
         <video id="vid2" width="640" height="480" autoplay muted controls loop>
