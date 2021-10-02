@@ -5,13 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
+    
+    <link rel="stylesheet" href="../static/basichome.css">
+    <style>
+        .zyro{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin: 10px;
+            justify-content: center;
+            align-items: center;
+            background-color: greenyellow;
+            border-radius: 25px;
+        }
+    </style>
 </head>
 <body>
-    {{msg}}
+    <div class="container">
+        <nav class="Nav">
+            <ul>
+ <!--               <li><img src="../public/traffic-lights.ico"></li>-->
+                <li><img src={{url_for('static',filename='traffic-lights.ico')}}></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+         </nav>
+    <div class="zyro">
+           <h2>{{msg}}</h2>
     <br>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file_name" multiple accept="video/*">
         <input type="submit" value="Submit">
     </form>
+    </div>
+</div>
+ 
 </body>
 </html>
