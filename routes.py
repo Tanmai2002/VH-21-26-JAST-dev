@@ -2,6 +2,7 @@ from genericpath import exists
 from werkzeug.utils import secure_filename
 # from werkzeug.datastructures import  FileStorage
 import os
+from carDetect import detect
 import secrets
 from flask import Flask, render_template, url_for, flash, redirect, request, abort
 from forms import VideoForm
@@ -41,6 +42,7 @@ def upload():
         i=0
         for f in request.files.getlist('file_name'):
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], f'test{i}.mp4'))
+            detect.getmarkedVideo(os.path.join(app.config['UPLOAD_FOLDER'], f'test{i}.mp4'))
         return render_template('videos.html', title='Home')
         # return render_template('upload.html', msg="File(s) have been uploaded successfully")
     return render_template('upload.html', title='upload',form=form, msg="Please Choose files")
